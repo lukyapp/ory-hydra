@@ -1,0 +1,31 @@
+version: v25.4.0
+
+dsn: ${DSN}
+
+log:
+  level: info
+  format: json
+
+serve:
+  public:
+    host: 0.0.0.0
+    port: 4444
+  admin:
+    host: 0.0.0.0
+    port: 4445
+
+urls:
+  self:
+    issuer: ${HYDRA_PUBLIC_URL}   # must be the public URL users/clients see (OIDC issuer)
+    public: ${HYDRA_PUBLIC_URL}   # optional but recommended
+    admin: ${HYDRA_ADMIN_URL}     # optional; useful if Hydra needs to build admin links internally
+  login: ${LOGIN_CONSENT_URL}/auth/login
+  consent: ${LOGIN_CONSENT_URL}/auth/consent
+  logout: ${LOGIN_CONSENT_URL}/auth/logout
+  error: ${LOGIN_CONSENT_URL}/error
+
+secrets:
+  system:
+    - ${SYSTEM_SECRET}
+  cookie:
+    - ${COOKIE_SECRET}

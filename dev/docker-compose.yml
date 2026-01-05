@@ -1,0 +1,51 @@
+services:
+  hydra-postgres:
+    container_name: hydra-postgres
+    networks:
+      - ory-net
+    image: postgres:16
+    environment:
+      POSTGRES_USER: hydra
+      POSTGRES_PASSWORD: hydra
+      POSTGRES_DB: hydra
+    ports:
+      - "5434:5432"
+    volumes:
+      - ory_hydra_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hydra -d hydra"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  hydra:
+    container_name: hydra
+    networks:
+      - ory-net
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    depends_on:
+      hydra-postgres:
+        condition: service_healthy
+#    env_file:
+#      - .env
+    environment:
+      - DSN=postgres://hydra:hydra@hydra-postgres:5432/hydra?sslmode=disable
+      - RUN_MIGRATIONS=true
+      - COOKIE_SECRET=74daed037a6088e66e4b74c668984dea
+      - HYDRA_PUBLIC_URL=http://localhost:4444
+      - LOGIN_CONSENT_URL=http://localhost:3000
+      - HYDRA_ADMIN_URL=http://localhost:4445
+      - SYSTEM_SECRET=436dafb995d73de7b5e3b212135b4980
+      - HYDRA_EXTRA_ARGS=--dev
+    ports:
+      - "4444:4444"
+      - "4445:4445"
+
+volumes:
+  ory_hydra_postgres_data:
+
+networks:
+  ory-net:
+    external: true
