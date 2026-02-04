@@ -19,6 +19,12 @@ cp dev/.env.example dev/.env
 docker compose -f dev/docker-compose.yml --env-file dev/.env up --build
 ```
 
+2) if change, rebuild :
+
+```bash
+docker-compose down && docker-compose build --no-cache && docker-compose up -d
+```
+
 Hydra endpoints:
 
 - Public: http://localhost:4444
