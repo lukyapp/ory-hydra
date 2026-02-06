@@ -5,6 +5,7 @@ dsn: ${DSN}
 log:
   level: info
   format: json
+  leak_sensitive_values: false
 
 serve:
   public:
@@ -47,3 +48,8 @@ secrets:
     - ${SYSTEM_SECRET}
   cookie:
     - ${COOKIE_SECRET}
+
+oauth2:
+  pkce:
+    enforced: true
+    enforced_for_public_clients: true
