@@ -8,6 +8,10 @@ log:
   leak_sensitive_values: false
 
 serve:
+  cookies:
+    domain: ${COOKIE_DOMAIN}
+    same_site_mode: Lax
+    same_site_legacy_workaround: false
   public:
     host: 0.0.0.0
     port: 4444
@@ -49,8 +53,14 @@ secrets:
     - ${SYSTEM_SECRET}
   cookie:
     - ${COOKIE_SECRET}
+  pagination:
+    - ${PAGINATION_SECRET}
 
 oauth2:
   pkce:
     enforced: true
     enforced_for_public_clients: true
+
+clients:
+  http:
+    disallow_private_ip_ranges: true

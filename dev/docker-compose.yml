@@ -34,11 +34,13 @@ services:
       - DSN=postgres://hydra:hydra@hydra-postgres:5432/hydra?sslmode=disable
       - RUN_MIGRATIONS=true
       - COOKIE_SECRET=74daed037a6088e66e4b74c668984dea
+      - PAGINATION_SECRET=174daed037a6088e66e4b74c668984dea
       - HYDRA_PUBLIC_URL=http://localhost:4444
       - LOGIN_CONSENT_URL=http://localhost:3000
       - WILDCARD_DOMAINS_URL=http://*
       - HYDRA_ADMIN_URL=http://localhost:4445
       - SYSTEM_SECRET=436dafb995d73de7b5e3b212135b4980
+      - COOKIE_DOMAIN=localhost
       - HYDRA_EXTRA_ARGS=--dev
     ports:
       - "4444:4444"

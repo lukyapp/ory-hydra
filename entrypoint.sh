@@ -8,6 +8,8 @@ set -eu
 : "${WILDCARD_DOMAINS_URL:?Missing WILDCARD_DOMAINS_URL}"
 : "${SYSTEM_SECRET:?Missing SYSTEM_SECRET}"
 : "${COOKIE_SECRET:?Missing COOKIE_SECRET}"
+: "${PAGINATION_SECRET:?Missing PAGINATION_SECRET}"
+: "${COOKIE_DOMAIN:?Missing COOKIE_DOMAIN}"
 
 envsubst < /etc/hydra/hydra.yml.tmpl > /etc/hydra/hydra.yml
 

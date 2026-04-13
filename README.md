@@ -13,7 +13,7 @@ Instead of re-implementing authentication standards, this project focuses on del
 
 Ory Hydra is maintained by the Ory team and is widely used as an Identity and Authorization Provider in modern architectures.
 
-👉 Official documentation: https://www.ory.sh/hydra/docs/
+👉 Official documentation: https://www.ory.com/docs/hydra
 
 ## 🚀 Key Features
 
@@ -38,7 +38,7 @@ This setup allows you to easily run and manage **Ory Hydra**, benefiting from al
   Reliable persistence for clients, tokens, and consent sessions
 
 For the complete list of features, refer to Hydra’s official docs:  
-👉 https://www.ory.sh/hydra/docs/
+👉 https://www.ory.com/docs/hydra
 
 ## 🛠️ Tech Stack
 
@@ -83,6 +83,8 @@ The service is configured via environment variables. Key configurations include:
 | `LOGIN_CONSENT_URL` | URL of the login/consent app | `http://localhost:3000` |
 | `SYSTEM_SECRET` | Secret for encrypting sensitive data | `your-secure-secret` |
 | `COOKIE_SECRET` | Secret for encrypting cookies | `your-cookie-secret` |
+| `PAGINATION_SECRET` | Secret used to protect pagination tokens | `your-pagination-secret` |
+| `COOKIE_DOMAIN` | Cookie domain used by Hydra | `localhost` |
 
 ## 📂 Project Structure
 
