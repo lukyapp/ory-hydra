@@ -42,7 +42,7 @@ For the complete list of features, refer to Hydra’s official docs:
 
 ## 🛠️ Tech Stack
 
-- **Ory Hydra** - v25.4.0
+- **Ory Hydra** - v26.2.0
 - **PostgreSQL** - v16 (for token and configuration storage)
 - **Docker** - Containerization
 - **Docker Compose** - Local development and testing

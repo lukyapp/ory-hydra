@@ -1,5 +1,5 @@
 # Stage 1: take hydra binary from official image
-FROM oryd/hydra:v25.4.0 AS hydra
+FROM oryd/hydra:v26.2.0 AS hydra
 
 # Stage 2: alpine runtime with envsubst
 FROM alpine:3.20
